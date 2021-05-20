@@ -1,0 +1,13 @@
+<h1>Моє портфоліо</h1>
+{% load static %}
+<img src="{% static 'portfolio/vml.JPG' %}"  height="800" width=""><br>
+
+{% for project in projects %}
+<a href="#"></a>
+<h2>{{project.title}}</h2>
+<p>{{project.description}}</p>
+<img src="{{project.image.url}}" height="150" width="150">
+{% if project.url %}
+<br><a href="{{project.url}}">Link</a>
+{% endif %}
+{% endfor %}

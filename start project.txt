@@ -1,0 +1,6 @@
+django-admin startproject personal_portfolio
+cd personal_portfolio-project
+python manage.py startapp blog
+python manage.py startapp portfolio
+прописати назви додатків blog and portfolio в файлі settings.py
+ 
