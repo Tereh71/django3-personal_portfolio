@@ -1,6 +1,10 @@
 <h1>Моє портфоліо</h1>
+<a href="{% url 'blog:all_blogs' %}">Блог</a>
+<br>
+
 {% load static %}
 <img src="{% static 'portfolio/vml.JPG' %}"  height="800" width=""><br>
+<br>
 
 {% for project in projects %}
 <a href="#"></a>
