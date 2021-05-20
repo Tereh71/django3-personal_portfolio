@@ -1,24 +1,40 @@
-{% extends 'portfolio/base.html' %}
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
 {% block content %}
 
-    <h1>Моє портфоліо</h1>
-    <a href="{% url 'blog:all_blogs' %}">Блог</a>
-      <br>
-    <a href="{% url 'blog:all_blogs' %}">Моє резюме</a>
-    <br>
+<div class="row justify-content-center my-3">
+  <div class="col-5">
+    <img src="{% static 'portfolio/vml.jpg' %}" class="img-fluid">
+  </div>
+</div>
 
-    {% load static %}
-    <img src="{% static 'portfolio/vml.JPG' %}"  height="800" width=""><br>
-    <br>
+<div class="row justify-content-center mb-3">
+  <div class="col-md-9 text-center">
+    <h1 id="hometext" class="font-weight-bold">Volodymyr Lositskyi is Institution of general secondary education of I-III degrees "Palmyra" 😊</h1>
+  </div>
+</div>
 
-    {% for project in projects %}
-    <a href="#"></a>
-    <h2>{{project.title}}</h2>
-    <p>{{project.description}}</p>
-    <img src="{{project.image.url}}" height="150" width="150">
+<h2 class="mt-5">Portfolio</h2>
+<hr>
+<div class="row">
+  {% for project in projects %}
+  <div class="col-lg-4 col-md-6">
+
     {% if project.url %}
-    <br><a href="{{project.url}}">Link</a>
-    {% endif %}
-    {% endfor %}
+    <a href="{{ project.url }}">
+      <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    </a>
+    {% else %}
 
-    {% endblock %}
+    <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    {% endif %}
+    <h3>{{ project.title }}</h3>
+    <p>{{ project.description }}</p>
+
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
